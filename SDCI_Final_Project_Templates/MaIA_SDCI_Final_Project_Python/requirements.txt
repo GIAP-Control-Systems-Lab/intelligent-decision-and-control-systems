@@ -1,0 +1,8 @@
+# MaIA_SDCI Final Project - Python dependencies
+# Recommended local Python version: 3.11
+
+numpy>=1.26,<3
+scipy>=1.11,<2
+pandas>=2.1,<4
+matplotlib>=3.8,<4
+ipywidgets>=7.7,<9

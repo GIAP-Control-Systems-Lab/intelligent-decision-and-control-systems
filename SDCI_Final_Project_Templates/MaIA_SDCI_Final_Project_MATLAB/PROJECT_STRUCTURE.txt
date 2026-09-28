@@ -1,0 +1,44 @@
+=============================================================================
+MaIA_SDCI Final Project
+Sistemas de Decision y Control Inteligente (SDCI)
+Universidad de los Andes, 2026
+
+Copyright (c) 2026 Leffer Trochez
+=============================================================================
+
+Project folder structure.
+
+MaIA_SDCI_Final_Project_MATLAB/
+|-- MaIA_SDCI_Temperature_Control.slx
+|-- startup_project.m
+|-- PROJECT_STRUCTURE.txt
+|-- app/
+|   |-- Control_App.m
+|   |-- launch_app.m
+|   `-- configure_logging.m
+|-- config/
+|   |-- project_config.m
+|   |-- environment_parameters.m
+|   |-- sensor_parameters.m
+|   |-- model_parameters.m
+|   |-- controller_parameters.m
+|   |-- model/
+|   |   |-- block_based_actuator_parameters.m
+|   |   |-- block_based_plant_parameters.m
+|   |   |-- simscape_actuator_parameters.m
+|   |   `-- simscape_plant_parameters.m
+|   `-- controller/
+|       |-- on_off_parameters.m
+|       |-- fuzzy_parameters.m
+|       |-- mpc_parameters.m
+|       |-- esc_parameters.m
+|       `-- replicator_parameters.m
+|-- utilities/
+|   |-- compute_metrics.m
+|   `-- save_results.m
+|-- results/
+`-- cache/
+
+Portable startup: every runtime path is derived from the project root.
+No user-specific or computer-specific absolute paths are stored in the project.
+The results/ and cache/ folders are created automatically when required.

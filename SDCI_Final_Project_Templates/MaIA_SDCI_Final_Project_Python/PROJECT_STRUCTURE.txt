@@ -1,0 +1,54 @@
+=============================================================================
+MaIA_SDCI Final Project
+Sistemas de Decision y Control Inteligente (SDCI)
+Universidad de los Andes, 2026
+
+Copyright (c) 2026 Leffer Trochez
+=============================================================================
+
+Project folder structure.
+
+MaIA_SDCI_Final_Project_Python/
+|-- MaIA_SDCI_Temperature_Control.ipynb
+|-- startup_project.ipynb
+|-- requirements.txt
+|-- README.md
+|-- PROJECT_STRUCTURE.txt
+|-- app/
+|   |-- Control_App.ipynb
+|   |-- launch_app.ipynb
+|   `-- configure_logging.ipynb
+|-- config/
+|   |-- project_config.ipynb
+|   |-- environment_parameters.ipynb
+|   |-- sensor_parameters.ipynb
+|   |-- model_parameters.ipynb
+|   |-- model/
+|   |   |-- actuator_parameters.ipynb
+|   |   `-- plant_parameters.ipynb
+|   `-- controller/
+|       |-- controller_parameters.ipynb
+|       |-- on_off_parameters.ipynb
+|       |-- fuzzy_parameters.ipynb
+|       |-- mpc_parameters.ipynb
+|       |-- esc_parameters.ipynb
+|       `-- replicator_parameters.ipynb
+|-- utilities/
+|   |-- compute_metrics.ipynb
+|   `-- save_results.ipynb
+`-- results/
+
+Controller workspace:
+  All controller-specific parameters, states and algorithms are isolated
+  inside config/controller/.
+
+Fixed controller runtime interface:
+  Inputs : T_ref, T_error, T_meas
+  Output : duty_cycle
+
+Portable startup:
+  Every runtime path is derived from the project root.
+  No user-specific or computer-specific absolute paths are stored.
+  results/ is created automatically when required.
+  The same notebooks are used in VS Code/Jupyter and Google Colab.
+  No MATLAB, Simulink, .fis, or .mat dependency is required.
