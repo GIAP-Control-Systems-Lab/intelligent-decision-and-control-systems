@@ -28,6 +28,16 @@ Laboratorio interactivo de control PID aplicado a un sistema masa–resorte–am
 
 [Ver archivos en GitHub](https://github.com/GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems/tree/main/S2_PID_Lab)
 
+### Semana 3 — Laboratorio interactivo Fuzzy Logic
+
+Laboratorio interactivo de control difuso aplicado a un sistema masa–resorte–amortiguador modelado en Simulink y Simscape.
+
+[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems&file=S3_Fuzzy_Logic_Lab/run_SMD.m)
+
+**Ejecución:** Abra el laboratorio en MATLAB Online y ejecute `run_SMD.m`.
+
+[Ver archivos en GitHub](https://github.com/GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems/tree/main/S3_Fuzzy_Logic_Lab)
+
 ---
 
 **GIAP — Control Systems Lab**  
