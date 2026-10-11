@@ -66,7 +66,10 @@ Página web interactiva de apoyo para explorar conceptos y ejemplos de teoría d
   <kbd>🌐 Open Interactive WebPage ↗</kbd>
 </a>
 
-[Ver archivos en GitHub](https://github.com/GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems/tree/main/SDCI_Teoria_Juegos_WebPage)
+
+<a href="https://github.com/GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems/tree/main/SDCI_Teoria_Juegos_WebPage">
+  <kbd>🐙 Ver archivos en GitHub ↗</kbd>
+</a>
 
 ---
 
