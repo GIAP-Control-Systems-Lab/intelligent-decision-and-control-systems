@@ -62,14 +62,9 @@ Laboratorio interactivo de control predictivo (MPC) aplicado a un sistema de dos
 
 Página web interactiva de apoyo para explorar conceptos y ejemplos de teoría de juegos directamente desde el navegador.
 
-<a href="https://giap-control-systems-lab.github.io/intelligent-decision-and-control-systems/SDCI_Teoria_Juegos_WebPage/">
-  <kbd>🌐 Open Interactive WebPage ↗</kbd>
-</a>
 
+<a href="https://giap-control-systems-lab.github.io/intelligent-decision-and-control-systems/SDCI_Teoria_Juegos_WebPage/"><kbd>🌐 Open Interactive WebPage ↗</kbd></a>&nbsp;&nbsp;<a href="https://github.com/GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems/tree/main/SDCI_Teoria_Juegos_WebPage"><kbd>🐙 Ver archivos en GitHub ↗</kbd></a>
 
-<a href="https://github.com/GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems/tree/main/SDCI_Teoria_Juegos_WebPage">
-  <kbd>🐙 Ver archivos en GitHub ↗</kbd>
-</a>
 
 ---
 
