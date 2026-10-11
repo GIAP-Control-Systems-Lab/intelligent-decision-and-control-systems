@@ -40,7 +40,7 @@ Laboratorio interactivo de control difuso aplicado a un sistema masa–resorte�
 
 ### Semana 4 — Laboratorio interactivo Extremum Seeking Control
 
-Laboratorio interactivo de **Extremum Seeking Control (ESC)** aplicado a un sistema de frenado antibloqueo (**ABS**) de un cuarto de vehículo modelado en Simulink y Simscape.
+Laboratorio interactivo de Extremum Seeking Control (ESC) aplicado a un sistema de frenado antibloqueo (ABS) de un cuarto de vehículo modelado en Simulink y Simscape.
 
 [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems&file=S4_ESC_Lab/run_ABS.m)
 
