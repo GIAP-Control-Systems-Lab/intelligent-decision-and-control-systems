@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="description" content="Herramienta de soporte interactiva (Semana 6): juegos de suma cero, estrategias mixtas, equilibrio de Nash y estrategias evolutivamente estables.">
+  <title>Herramienta de Soporte Interactiva</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script defer src="vendor/katex/katex.min.js"></script>
+  <script defer src="vendor/katex/contrib/auto-render.min.js"></script>
+  <script defer src="js/core.js"></script>
+  <script defer src="js/tab-motivador.js"></script>
+  <script defer src="js/tab-mixtas.js"></script>
+  <script defer src="js/tab-gallina.js"></script>
+  <script defer src="js/tab-dividir-robar.js"></script>
+  <script defer src="js/tab-ess-hormigas.js"></script>
+  <script defer src="js/tab-ess-halcon-paloma.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <div class="spectrum-bar" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div>
+      <div class="eyebrow">Semana 6 · Teoría de juegos</div>
+      <h1 class="site-title">Herramienta de Soporte <span class="grad">Interactiva</span></h1>
+      <p class="site-sub">Seis ejemplos para explorar estrategias puras y mixtas, equilibrios de Nash y estrategias evolutivamente estables.</p>
+    </div>
+  </header>
+
+  <nav class="tabs-wrap" aria-label="Ejemplos">
+    <div class="tabs" role="tablist" id="tablist">
+      <button class="tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true" tabindex="0">
+        <span class="tab-num">01</span><span class="tab-label">Ejemplo Motivador</span>
+      </button>
+      <button class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1">
+        <span class="tab-num">02</span><span class="tab-label">Ejemplo Estrategias Mixtas</span>
+      </button>
+      <button class="tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1">
+        <span class="tab-num">03</span><span class="tab-label">Ejemplo Juegos de Suma No Cero</span>
+      </button>
+      <button class="tab" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1">
+        <span class="tab-num">04</span><span class="tab-label">Ejemplo Juegos Simétricos</span>
+      </button>
+      <button class="tab" role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false" tabindex="-1">
+        <span class="tab-num">05</span><span class="tab-label">Ejemplo 1 ESS</span>
+      </button>
+      <button class="tab" role="tab" id="tab-6" aria-controls="panel-6" aria-selected="false" tabindex="-1">
+        <span class="tab-num">06</span><span class="tab-label">Ejemplo 2 ESS</span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ================================================================ -->
+    <!-- 01 · Ejemplo Motivador                                            -->
+    <!-- ================================================================ -->
+    <section class="panel" id="panel-1" role="tabpanel" aria-labelledby="tab-1" tabindex="0">
+      <div class="panel-head">
+        <span class="panel-kicker">Juego de suma cero</span>
+        <h2 class="panel-title">Ejemplo Motivador</h2>
+      </div>
+
+      <div class="grid grid-7-5">
+        <div class="grid">
+          <div class="card">
+            <div class="card-title"><span class="dot"></span>Matriz de pagos \(J_1\)</div>
+            <p class="hint">Seleccione una formación de cada equipo para resaltar su fila o columna en la matriz.</p>
+            <div class="matrix-wrap">
+              <div class="fm-grid" id="fm-grid"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><span class="dot"></span>Formaciones en el campo</div>
+            <svg class="pitch" id="pitch" viewBox="0 0 1050 680" role="img" aria-label="Campo de fútbol con las formaciones seleccionadas"></svg>
+            <div class="pitch-legend">
+              <span class="lg"><span class="sw" style="background:var(--p1)"></span><span class="axis-p1">Equipo P1</span></span>
+              <span class="lg"><span class="axis-p2">Equipo P2</span><span class="sw" style="background:var(--p2)"></span></span>
+            </div>
+            <div class="result-box" id="fm-info" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><span class="dot"></span>Valor del juego</div>
+          <div class="theory-list">
+            <div class="theory-item">
+              <button class="btn btn-primary" id="btn-vmin" type="button">Calcular \(v^-\)</button>
+              <div class="theory-out" id="out-vmin" aria-live="polite"></div>
+            </div>
+            <div class="theory-item">
+              <button class="btn btn-primary" id="btn-vmax" type="button">Calcular \(v^+\)</button>
+              <div class="theory-out" id="out-vmax" aria-live="polite"></div>
+            </div>
+            <div class="theory-item">
+              <button class="btn btn-primary" id="btn-saddle" type="button">Calcular el saddle point</button>
+              <div class="theory-out" id="out-saddle" aria-live="polite"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- 02 · Ejemplo Estrategias Mixtas                                   -->
+    <!-- ================================================================ -->
+    <section class="panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2" tabindex="0" hidden>
+      <div class="panel-head">
+        <span class="panel-kicker">Piedra, papel o tijeras</span>
+        <h2 class="panel-title">Ejemplo Estrategias Mixtas</h2>
+      </div>
+
+      <div class="grid grid-7-5">
+        <div class="card prose">
+          <p>En este clásico juego, dos jugadores se enfrentan con la posibilidad de tomar una de 3 estrategias: Piedra, Papel, Tijeras. Bajo las siguientes reglas:</p>
+          <ul>
+            <li>Papel cubre piedra</li>
+            <li>La piedra destroza a las tijeras</li>
+            <li>Las tijeras cortan el papel</li>
+          </ul>
+          <p>Asumiendo que la recompensa al ganar o perder es unitaria, matemáticamente podemos expresar el juego mediante la siguiente matriz, donde el jugador 1 toma las estrategias asociadas a las filas y el jugador 2 las asociadas a las columnas.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><span class="dot"></span>Matriz de pagos \(J_1\)</div>
+          <div class="matrix-wrap" id="rps-matrix"></div>
+        </div>
+      </div>
+
+      <div class="grid grid-5-7" style="margin-top: clamp(14px, 2vw, 22px);">
+        <div class="card">
+          <div class="card-title"><span class="dot"></span>Su estrategia mixta</div>
+          <p class="hint">Imagine que juega como el jugador 1, escoja su estrategia arrastrando el punto a la combinación de probabilidades deseada. Recuerde que una estrategia pura también se puede representar de forma vectorial. El jugador 2 jugará con una best response ante su elección.</p>
+          <div class="simplex-box">
+            <svg class="simplex" id="simplex" viewBox="0 0 330 300" role="img" aria-label="Triángulo de probabilidades del jugador 1. Use las flechas del teclado para mover el punto."></svg>
+            <div class="pi-readout" id="pi-readout" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="btn-row" style="margin-bottom: 14px;">
+            <button class="btn btn-primary" id="btn-rps-play" type="button">¡Jugar!</button>
+            <button class="btn btn-ghost" id="btn-rps-nash" type="button">Calcular el Equilibrio de Nash</button>
+          </div>
+          <div class="outcome" id="rps-outcome" aria-live="polite"></div>
+          <div class="outcome prose" id="rps-nash" aria-live="polite" style="margin-top: 12px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- 03 · Ejemplo Juegos de Suma No Cero (gallina)                      -->
+    <!-- ================================================================ -->
+    <section class="panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3" tabindex="0" hidden>
+      <div class="panel-head">
+        <span class="panel-kicker">Juego de la gallina</span>
+        <h2 class="panel-title">Ejemplo Juegos de Suma No Cero</h2>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card road-card">
+          <div class="road" id="road" role="button" tabindex="0" aria-label="Carretera: haga clic, toque o pulse Enter para frenar durante el juego">
+            <svg id="road-svg" viewBox="0 0 200 500" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+          </div>
+          <div class="road-status" id="road-status" aria-live="polite"></div>
+          <button class="btn btn-primary btn-block" id="btn-replay" type="button" disabled>Volver a jugar</button>
+          <div class="pay-out" id="chicken-pay" aria-live="polite"></div>
+        </div>
+
+        <div class="card">
+          <p class="prose" id="chicken-instr" aria-live="polite"></p>
+          <div class="matrix-caption" style="margin-top:14px">Matriz de pagos para el jugador 1 <img src="assets/img/car1.png" alt=""></div>
+          <div class="matrix-wrap" id="chicken-m1"></div>
+          <div class="matrix-caption" style="margin-top:14px">Matriz de pagos para el jugador 2 <img src="assets/img/car2.png" alt=""></div>
+          <div class="matrix-wrap" id="chicken-m2"></div>
+        </div>
+
+        <div class="card span-md-all">
+          <button class="btn btn-primary btn-block" id="btn-chicken-ne" type="button">¿Es esta combinación de estrategias un equilibrio de Nash?</button>
+          <div class="ne-out" id="chicken-ne" aria-live="polite" style="margin-top: 14px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- 04 · Ejemplo Juegos Simétricos (dividir o robar)                   -->
+    <!-- ================================================================ -->
+    <section class="panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4" tabindex="0" hidden>
+      <div class="panel-head">
+        <span class="panel-kicker">Dividir o robar</span>
+        <h2 class="panel-title">Ejemplo Juegos Simétricos</h2>
+      </div>
+
+      <div class="grid grid-7-5">
+        <div class="card prose">
+          <p>Usted (Jugador 1) se encuentra en un juego contra el jugador 2. En este juego hay 10000 USD en disputa y cada uno puede tomar una estrategia en simultáneo: Dividir o Robar.</p>
+          <p>Si ambos eligen dividir se llevarán 5000 USD cada uno; sin embargo, si su contrincante decide robar y usted decide dividir, usted se irá a casa con 0 USD además de ser humillado. De manera análoga, si usted decide robar y su contrincante decide dividir, usted se irá con los 10000 USD. No obstante, si ambos decidieran robar ambos perderían todo el dinero en juego.</p>
+          <p>Antes de decidir qué hacer piense en cómo se ven las matrices de pago para cada jugador. Puede jugar contra dos oponentes diferentes (sus estrategias se reinician al cambiar de oponente). El primero no tiene una estrategia definida a largo plazo y le permitirá revelar sus intenciones, aunque no tiene por qué decirle la verdad. Note cómo la interacción social con su oponente podría hacer que utilice una cierta estrategia. El segundo oponente tiene una estrategia claramente definida al jugar repetidas veces, ¿puede encontrar cuál es?</p>
+
+          <h3 style="font-size:1.05rem; margin-top: 18px;">¿Qué estrategia decide jugar?</h3>
+          <fieldset class="choice-group" id="pd-choices">
+            <legend class="visually-hidden">Su estrategia</legend>
+            <label class="choice"><input type="radio" name="pd-choice" value="dividir" checked><span>Dividir</span></label>
+            <label class="choice"><input type="radio" name="pd-choice" value="robar"><span>Robar</span></label>
+          </fieldset>
+          <div class="btn-row">
+            <button class="btn btn-primary" id="btn-pd-play" type="button">¡Jugar!</button>
+            <button class="btn btn-ghost" id="btn-pd-replay" type="button" disabled>Limpiar resultado para jugar de nuevo</button>
+          </div>
+          <div class="result-box outcome-text" id="pd-outcome" aria-live="polite"></div>
+        </div>
+
+        <div class="card opponent">
+          <div class="bubble" id="pd-bubble" aria-live="polite"></div>
+          <div class="avatar"><img id="pd-avatar" src="assets/img/person.png" alt="Jugador 2"></div>
+          <div class="opp-name">Jugador 2</div>
+          <div class="opp-tag" id="pd-opp-tag">Oponente 1 de 2</div>
+          <div class="btn-stack" style="width:100%; max-width: 280px;">
+            <button class="btn btn-green" id="btn-pd-reveal" type="button">Revelar intenciones</button>
+            <button class="btn btn-ghost" id="btn-pd-change" type="button">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg>
+              Cambiar de oponente
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="matrix-caption">Matriz de pagos para el jugador 1</div>
+          <div class="matrix-wrap" id="pd-m1"></div>
+        </div>
+        <div class="card">
+          <div class="matrix-caption">Matriz de pagos para el jugador 2</div>
+          <div class="matrix-wrap" id="pd-m2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- 05 · Ejemplo 1 ESS (hormigas)                                      -->
+    <!-- ================================================================ -->
+    <section class="panel" id="panel-5" role="tabpanel" aria-labelledby="tab-5" tabindex="0" hidden>
+      <div class="panel-head">
+        <span class="panel-kicker">Estrategias puras</span>
+        <h2 class="panel-title">Ejemplo 1 ESS</h2>
+      </div>
+
+      <div class="grid grid-7-5">
+        <div class="card prose" id="ess1-text"></div>
+
+        <div class="grid">
+          <div class="card">
+            <div class="card-title"><span class="dot"></span>Matriz de pagos \(J_1\)</div>
+            <div class="matrix-wrap" id="ess1-matrix"></div>
+          </div>
+          <div class="card btn-stack">
+            <button class="btn btn-primary q-btn" id="btn-ess-q1" type="button"><span class="q-num">1</span><span>En una población de hormigas desertoras, ¿podría sobrevivir un grupo mutado con genes cooperativos?</span></button>
+            <button class="btn btn-primary q-btn" id="btn-ess-q2" type="button"><span class="q-num">2</span><span>En una población de hormigas cooperativas, ¿podría sobrevivir un grupo mutado con genes desertores?</span></button>
+          </div>
+        </div>
+
+        <div class="card span-all">
+          <div class="grid grid-7-5">
+            <div>
+              <div class="slides"><img id="ess1-slide" src="assets/img/ess1/1.png" alt="Simulación de la colonia de hormigas" width="1280" height="720"></div>
+              <div class="slide-dots" id="ess1-dots" aria-hidden="true"></div>
+            </div>
+            <div class="expl" id="ess1-expl" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- 06 · Ejemplo 2 ESS (halcón-paloma)                                 -->
+    <!-- ================================================================ -->
+    <section class="panel" id="panel-6" role="tabpanel" aria-labelledby="tab-6" tabindex="0" hidden>
+      <div class="panel-head">
+        <span class="panel-kicker">Estrategias mixtas</span>
+        <h2 class="panel-title">Ejemplo 2 ESS</h2>
+      </div>
+
+      <div class="grid grid-7-5">
+        <div class="card prose">
+          <div class="hd-figures">
+            <img src="assets/img/hawk.png" alt="Halcón">
+            <img src="assets/img/dove.png" alt="Paloma">
+          </div>
+          <p>A continuación se muestra la matriz correspondiente a un juego H-D, donde \(V\) es el valor que se obtiene al ganar mientras que \(C\) es el costo de perder.</p>
+          <p>El gráfico muestra la probabilidad de que se juegue una cierta estrategia, es decir, representa la estrategia mixta del jugador 1. Este intentará jugar la estrategia mixta correspondiente con el ESS del juego \(\left(\pi^* = \left[\tfrac{V}{C},\, \tfrac{C-V}{C}\right]\right)\) siempre y cuando este exista.</p>
+          <p>Observe cómo el vector de la estrategia mixta cambia dependiendo de los valores de \(V\) y \(C\). ¿Puede encontrar alguna combinación de valores que consiga la existencia de una estrategia dominante? Así mismo, experimente con los sliders y piense en la condición que deben cumplir \(V\) y \(C\) para garantizar la existencia de un ESS.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><span class="dot"></span>Matriz de pagos \(J_1\)</div>
+          <div class="matrix-wrap" id="hd-matrix"></div>
+        </div>
+
+        <div class="card">
+          <div class="slider-row">
+            <label class="slider-val" for="slider-v" id="label-v">V = 5.00</label>
+            <input type="range" id="slider-v" min="0.5" max="20" step="0.5" value="5" style="--col: var(--c2)">
+          </div>
+          <div class="slider-row">
+            <label class="slider-val" for="slider-c" id="label-c">C = 10.00</label>
+            <input type="range" id="slider-c" min="0.5" max="20" step="0.5" value="10" style="--col: var(--c1)">
+          </div>
+          <div class="pi-star" id="hd-pistar" aria-live="polite"></div>
+        </div>
+
+        <div class="card">
+          <div class="pie-wrap">
+            <svg class="pie" id="hd-pie" viewBox="0 0 220 220" role="img" aria-label="Estrategia mixta del jugador 1"></svg>
+            <div class="pie-legend" id="hd-legend"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="copy-year">2026</span> Sistemas de Decisión y Control Inteligente, Maestría en Inteligencia Artificial, Universidad de los Andes. Todos los derechos reservados.
+  </footer>
+</body>
+</html>
