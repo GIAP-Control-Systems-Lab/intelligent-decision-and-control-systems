@@ -58,17 +58,17 @@ Laboratorio interactivo de control predictivo (MPC) aplicado a un sistema de dos
 
 [Ver archivos en GitHub](https://github.com/GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems/tree/main/S5_MPC_Lab)
 
+
 ## Herramientas de soporte
 
 ### Semana 6 — Herramienta web interactiva de Teoría de Juegos
 
-Página web interactiva de apoyo para explorar conceptos y ejemplos de teoría de juegos directamente desde el navegador, sin necesidad de MATLAB ni instalaciones adicionales.
+Página web interactiva de apoyo para explorar conceptos y ejemplos de teoría de juegos directamente desde el navegador.
 
-[![Open Interactive WebPage](https://img.shields.io/badge/Open-Interactive%20WebPage-0078D4?style=for-the-badge)](https://giap-control-systems-lab.github.io/intelligent-decision-and-control-systems/SDCI_Teoria_Juegos_WebPage/)
-
-**Ejecución:** Abra la herramienta desde el botón anterior en su navegador.
+[![Open Interactive WebPage](https://img.shields.io/badge/Open-Interactive%20WebPage-2563EB?style=for-the-badge&logo=googlechrome&logoColor=white)](https://giap-control-systems-lab.github.io/intelligent-decision-and-control-systems/SDCI_Teoria_Juegos_WebPage/)
 
 [Ver archivos en GitHub](https://github.com/GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems/tree/main/SDCI_Teoria_Juegos_WebPage)
+
 
 ---
 
