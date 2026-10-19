@@ -67,6 +67,18 @@ Página web interactiva de apoyo para explorar conceptos y ejemplos de teoría d
 
 <a href="https://giap-control-systems-lab.github.io/intelligent-decision-and-control-systems/SDCI_Teoria_Juegos_WebPage/"><kbd>🌐 Open Interactive WebPage ↗</kbd></a>&nbsp;&nbsp;<a href="https://github.com/GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems/tree/main/SDCI_Teoria_Juegos_WebPage"><kbd>🐙 Ver archivos en GitHub ↗</kbd></a>
 
+
+
+### Semana 6 — Laboratorio interactivo de Teoría de Juegos
+
+Juego de cartas multijugador para explorar conceptos de teoría de juegos mediante decisiones estratégicas e interacción entre estudiantes en tiempo real.
+
+<a href="https://giap-control-systems-lab.github.io/intelligent-decision-and-control-systems/S6_Teoria_Juegos_Lab/"><kbd>🎮 Abrir juego interactivo ↗</kbd></a>&nbsp;&nbsp;<a href="https://github.com/GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems/tree/main/S6_Teoria_Juegos_Lab"><kbd>🐙 Ver archivos en GitHub ↗</kbd></a>
+
+**Estudiantes:** Abran el juego desde el navegador e ingresen el código de sala proporcionado por el profesor.
+
+**Profesor:** Acceda al [panel de administración](https://giap-control-systems-lab.github.io/intelligent-decision-and-control-systems/S6_Teoria_Juegos_Lab/#/admin) para crear y administrar las salas.
+
 ---
 
 **GIAP — Control Systems Lab**  
