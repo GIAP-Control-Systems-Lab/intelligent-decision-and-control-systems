@@ -72,13 +72,14 @@ Página web interactiva de apoyo para explorar conceptos y ejemplos de teoría d
 
 ### Semana 6 — Laboratorio interactivo de Teoría de Juegos
 
-Juego de cartas multijugador para explorar conceptos de teoría de juegos mediante decisiones estratégicas e interacción entre equipos en tiempo real.
+Juego de cartas multijugador para explorar conceptos de teoría de juegos mediante decisiones estratégicas e interacción entre estudiantes en tiempo real.
 
 <a href="https://giap-control-systems-lab.github.io/intelligent-decision-and-control-systems/S6_Teoria_Juegos_Lab/"><kbd>🎮 Entrar al juego — Estudiantes ↗</kbd></a>&nbsp;&nbsp;<a href="https://giap-control-systems-lab.github.io/intelligent-decision-and-control-systems/S6_Teoria_Juegos_Lab/#/admin"><kbd>🔐 Panel del profesor ↗</kbd></a>&nbsp;&nbsp;<a href="https://github.com/GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems/tree/main/S6_Teoria_Juegos_Lab"><kbd>🐙 Ver archivos en GitHub ↗</kbd></a>
 
 **Estudiantes:** Accedan al juego e introduzcan el código de sala proporcionado por el profesor.
 
-**Profesor:** Acceda al panel de administración, inicie sesión y cree las salas para comenzar la actividad.
+**Profesor:** Acceda al panel de administración, inicie sesión con su contraseña y cree las salas para comenzar la actividad.
+
 
 
 ---
