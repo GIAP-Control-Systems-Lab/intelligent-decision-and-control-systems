@@ -10,12 +10,14 @@ Repositorio académico del curso **Sistemas de Decisión y Control Inteligente (
 
 
 
+
 > [!WARNING]
 > **MATLAB Online — Cambiar a fondo blanco**
 >
 > Si MATLAB Online aparece con fondo negro, puedes cambiarlo a blanco siguiendo estos pasos:
 >
-> **Home → Settings → Appearance → Light**
+> **Home (Inicio) → Settings (Configuración) → Appearance (Apariencia) → Light (Claro)**
+
 
 
 
