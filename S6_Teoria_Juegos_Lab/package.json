@@ -1,0 +1,25 @@
+{
+  "name": "juego-cartas-teoria-de-juegos",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Juego de cartas K-A-2-3 (Rojo vs Negro) en vivo para clase de Teoría de Juegos",
+  "type": "module",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n servidor,web -c red,blue \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w frontend",
+    "test": "vitest run tests/game.test.ts",
+    "test:integration": "node tests/integration.mjs",
+    "typecheck": "npm run typecheck -w backend && npm run typecheck -w frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6",
+    "vitest": "^5.0.4"
+  }
+}

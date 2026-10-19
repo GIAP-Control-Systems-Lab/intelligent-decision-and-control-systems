@@ -1,0 +1,22 @@
+name = "juego-cartas-backend"
+main = "src/index.ts"
+compatibility_date = "2025-09-01"
+send_metrics = false
+
+# One Durable Object holds every room. SQLite-backed classes are available on the
+# Workers FREE plan (no credit card), which is why "new_sqlite_classes" is used.
+[[durable_objects.bindings]]
+name = "GAME_HUB"
+class_name = "GameHub"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["GameHub"]
+
+[dev]
+ip = "0.0.0.0"
+port = 8787
+
+# ADMIN_PASSWORD is NOT stored here.
+#  - Local: backend/.dev.vars (created automatically from .dev.vars.example)
+#  - Production: `npx wrangler secret put ADMIN_PASSWORD`
