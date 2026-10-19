@@ -8,6 +8,17 @@
 
 Repositorio académico del curso **Sistemas de Decisión y Control Inteligente (SDCI)**. Aquí se publicarán progresivamente materiales, ejemplos, laboratorios, plantillas y recursos de apoyo utilizados durante el curso.
 
+
+
+<div style="background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 12px; border-radius: 5px;">
+
+**⚠️ Nota importante — MATLAB Online:** Si el fondo de MATLAB Online aparece en negro, puedes cambiarlo a blanco siguiendo estos pasos:
+
+**Home → Settings → Appearance → Light**
+
+</div>
+
+
 ## Material del curso
 
 ### Semana 1 — Plantilla del Proyecto Final
