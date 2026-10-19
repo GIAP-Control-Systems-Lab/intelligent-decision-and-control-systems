@@ -10,13 +10,13 @@ Repositorio académico del curso **Sistemas de Decisión y Control Inteligente (
 
 
 
-<div style="background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 12px; border-radius: 5px;">
+> [!WARNING]
+> **MATLAB Online — Cambiar a fondo blanco**
+>
+> Si MATLAB Online aparece con fondo negro, puedes cambiarlo a blanco siguiendo estos pasos:
+>
+> **Home → Settings → Appearance → Light**
 
-**⚠️ Nota importante — MATLAB Online:** Si el fondo de MATLAB Online aparece en negro, puedes cambiarlo a blanco siguiendo estos pasos:
-
-**Home → Settings → Appearance → Light**
-
-</div>
 
 
 ## Material del curso
