@@ -1,0 +1,88 @@
+
+name: Publicar laboratorios web SDCI
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # Conservar el sitio web y README existentes
+      - name: Generar sitio web existente
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      # Preparar el entorno del nuevo juego
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: S6_Teoria_Juegos_Lab/package-lock.json
+
+      - name: Instalar dependencias
+        working-directory: S6_Teoria_Juegos_Lab
+        run: npm ci
+
+      - name: Ejecutar pruebas
+        working-directory: S6_Teoria_Juegos_Lab
+        run: npm test
+
+      # Compilar la aplicación React/Vite
+      - name: Compilar juego de cartas
+        working-directory: S6_Teoria_Juegos_Lab
+        env:
+          VITE_BASE: /intelligent-decision-and-control-systems/S6_Teoria_Juegos_Lab/
+          VITE_WS_URL: ${{ vars.VITE_WS_URL }}
+        run: |
+          if [ -z "$VITE_WS_URL" ]; then
+            echo "ERROR: Falta configurar VITE_WS_URL"
+            exit 1
+          fi
+          npm run build
+
+      # Publicar el juego sin reemplazar las otras páginas
+      - name: Integrar juego en GitHub Pages
+        run: |
+          mkdir -p _site/S6_Teoria_Juegos_Lab
+          cp -R S6_Teoria_Juegos_Lab/frontend/dist/. _site/S6_Teoria_Juegos_Lab/
+          touch _site/.nojekyll
+
+      - name: Subir sitio web
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Publicar páginas
+        id: deployment
+        uses: actions/deploy-pages@v4
