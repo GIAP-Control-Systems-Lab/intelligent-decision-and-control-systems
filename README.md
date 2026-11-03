@@ -27,7 +27,7 @@ Repositorio académico del curso **Sistemas de Decisión y Control Inteligente (
 
 Plantilla base en MATLAB/Simulink para el desarrollo del proyecto final del curso.
 
-[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems&file=SDCI_Final_Project_Templates/MaIA_SDCI_Final_Project_MATLAB/initialize_project.m)&nbsp;&nbsp;<a href="https://github.com/GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems/tree/main/SDCI_Final_Project_Templates/MaIA_SDCI_Final_Project_MATLAB"><kbd>🐙 Ver archivos en GitHub ↗</kbd></a>
+[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems&file=SDCI_Final_Project_Templates/MaIA_SDCI_Final_Project_MATLAB/startup_project.m)&nbsp;&nbsp;<a href="https://github.com/GIAP-Control-Systems-Lab/intelligent-decision-and-control-systems/tree/main/SDCI_Final_Project_Templates/MaIA_SDCI_Final_Project_MATLAB"><kbd>🐙 Ver archivos en GitHub ↗</kbd></a>
 
 ### Semana 2 — Laboratorio interactivo PID
 
